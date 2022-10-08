@@ -12,6 +12,7 @@ import RxCocoa
 class ViewModel {
     
     var weather = BehaviorRelay<WeatherModel>(value: WeatherModel(cityName: "", temperature: 0.0, humidity: 0))
+    var refreshCity: String? = "Kazan"
     
     func setup(city: String?) {
         guard let city = city else { return }

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.setup(city: "kazan")
+        viewModel.setup(city: viewModel.refreshCity)
         
         viewModel.weather
             .subscribe { model in
@@ -53,7 +53,8 @@ class ViewController: UIViewController {
         refreshButton.rx
             .tap
             .subscribe { _ in
-                self.viewModel.setup(city: self.textField.text)
+                self.viewModel.refreshCity = self.textField.text
+                self.viewModel.setup(city: self.viewModel.refreshCity)
             }.disposed(by: disposeBag)
             
     }
