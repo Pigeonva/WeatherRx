@@ -20,10 +20,6 @@ class Manager {
         let urlString = "\(weatherURL)&q=\(cityName)"
         
         performRequest(with: urlString) { model in
-//            let weather = WeatherModel()
-//            weather.cityName = model.cityName
-//            weather.temperature = model.temperature
-//            weather.humidity = model.humidity
             completion(model)
         }
         
